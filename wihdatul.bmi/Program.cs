@@ -1,0 +1,60 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace wihdatul.bmi
+{
+   
+}
+class Program
+{
+    static void Main(string[] args)
+    {
+
+        // Meminta input berat badan (kg)
+        Console.Write("Masukkan berat badan (kg): ");
+        double beratBadan = Convert.ToDouble(Console.ReadLine());
+
+        // Meminta input tinggi badan (cm)
+        Console.Write("Masukkan tinggi badan (cm): ");
+        double tinggiBadan = Convert.ToDouble(Console.ReadLine());
+
+        // Mengubah tinggi badan dari cm ke meter
+        double tinggiDalamMeter = tinggiBadan / 100;
+
+        // Menghitung BMI
+        double bmi = beratBadan / (tinggiDalamMeter * tinggiDalamMeter);
+
+        // Menampilkan hasil BMI
+        Console.WriteLine($"\nBMI Anda adalah: {bmi:F2}");
+
+        // Menentukan kategori BMI
+        if (bmi < 18.5)
+        {
+            Console.WriteLine("Kategori: Berat badan kurang.");
+        }
+        else if (bmi >= 18.5 && bmi < 24.9)
+        {
+            Console.WriteLine("Kategori: Normal (sehat).");
+        }
+        else if (bmi >= 25 && bmi < 29.9)
+        {
+            Console.WriteLine("Kategori: Berat badan berlebih.");
+        }
+        else
+        {
+            Console.WriteLine("Kategori: Obesitas.");
+        }
+
+        // Menghitung berat badan ideal (misalnya menggunakan BMI 22.5 sebagai referensi normal)
+        double bmiIdeal = 22.5;
+        double beratIdeal = bmiIdeal * (tinggiDalamMeter * tinggiDalamMeter);
+        Console.WriteLine($"\nBerat badan ideal Anda berdasarkan BMI normal adalah: {beratIdeal:F2} kg");
+
+        // Menunggu input untuk menutup program
+        Console.WriteLine("\nSudah selesai 'kan? tekanlah tombol keluar");
+        Console.ReadKey();
+    }
+}
